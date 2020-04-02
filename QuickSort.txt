@@ -1,24 +1,16 @@
-template<class T>
-void quickSortR(T* a, long N) { 
-//На вході - масив a[], a[N] - його останній елемент.
-
-  long i = 0, j = N;// присвоїти вказівникам початкові значення
-  T temp, p;
-
-  p = a[ N>>1 ];// центральний елемент
-  
- 
-  do {
-    while ( a[i] < p ) i++;
-    while ( a[j] > p ) j--;
- 
-    if (i <= j) {
-      temp = a[i]; a[i] = a[j]; a[j] = temp;
-      i++; j--;
-    }
-  } while ( i<=j );
-
- 
-  if ( j > 0 ) quickSortR(a, j);
-  if ( N > i ) quickSortR(a+i, N-i);
-}
+def quicksort(nums):
+   if len(nums) <= 1:
+       return nums
+   else:
+       q = random.choice(nums)
+       s_nums = []
+       m_nums = []
+       e_nums = []
+       for n in nums:
+           if n < q:
+               s_nums.append(n)
+           elif n > q:
+               m_nums.append(n)
+           else:
+               e_nums.append(n)
+       return quicksort(s_nums) + e_nums + quicksort(m_nums)
