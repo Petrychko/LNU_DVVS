@@ -7,7 +7,7 @@ void quickSortR(T* a, long N) {
 
   p = a[ N>>1 ];// центральний елемент
   
-  // процедура розділення
+ 
   do {
     while ( a[i] < p ) i++;
     while ( a[j] > p ) j--;
@@ -18,7 +18,7 @@ void quickSortR(T* a, long N) {
     }
   } while ( i<=j );
 
-  // рекурсивні виклики, якщо є щось, щоб сортувати
+ 
   if ( j > 0 ) quickSortR(a, j);
   if ( N > i ) quickSortR(a+i, N-i);
 }
